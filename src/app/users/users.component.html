@@ -1,5 +1,10 @@
-<p>
-user works!
-</p>
-
-<app-user></app-user>
+<div class="row">
+	<div class="col-md-4">
+		<ul class="list-group">
+			<li class="list-item" *ngFor="let username of users">{{ username.name }} </li>
+		</ul>
+	</div>
+	<div class="col-md-4">
+		<app-user></app-user>
+	</div>
+</div>
