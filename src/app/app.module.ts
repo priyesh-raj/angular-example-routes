@@ -12,7 +12,7 @@ import { ServerEditComponent } from './servers/server-edit/server-edit.component
 import { HomeComponent } from './home/home.component';
 import { ServerComponent } from './servers/server/server.component';
 import { UserComponent } from './users/user/user.component';
-
+ 
   
 
 const appRoutes : Routes = [{path:'', component: HomeComponent},
