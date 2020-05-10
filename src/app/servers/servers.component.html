@@ -1,3 +1,12 @@
-<app-server *ngFor="let serverEle of servers" [server]="serverEle"></app-server>
+<!-- <app-server *ngFor="let serverEle of servers" [server]="serverEle"></app-server>
+<app-server *ngFor="let serverEle of servers" [routerLink]="[serverEle.id]"></app-server>
 <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
-<app-server-edit></app-server-edit>
+<app-server-edit></app-server-edit> -->
+<div class="row">
+  <div class="col-md-4">
+    <ul class="list-group">
+      <li class="list-group-text" *ngFor="let serverEle of servers"><a 
+      [routerLink]="['../servers', serverEle.id]">{{ serverEle.name }}</a></li>
+    </ul>
+  </div>
+</div>

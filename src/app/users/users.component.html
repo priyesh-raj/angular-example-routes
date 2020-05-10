@@ -1,5 +1,5 @@
 <div class="list-group">
-  <a class="list-item" *ngFor="let userEle of users" [routerLink]="[userEle.id, userEle.name]">
+  <a class="list-item" *ngFor="let userEle of users" [routerLink]="['../users',userEle.id]" >
     <h5 class="list-item-heading" style="{cursor:'pointer'}">{{ userEle.name }}</h5  >
    </a>
 </div>
