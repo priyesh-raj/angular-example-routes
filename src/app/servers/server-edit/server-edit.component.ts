@@ -1,4 +1,6 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
+import { ServerService } from '../servers.service'
 
 @Component({
   selector: 'app-server-edit',
@@ -7,6 +9,15 @@ import { Component } from '@angular/core'
 
 })
 
-export class ServerEditComponent {
+export class ServerEditComponent implements OnInit{
+  allowEdit: boolean = false
+  
+  constructor(private route: ActivatedRoute,private serverService: ServerService) {}
+
+  ngOnInit() {
+    this.route.paramMap.subscribe(
+      params => {this.allowEdit = params.get('allowEdit')=== '1' ? true : false}
+    )
+  }
 
 }

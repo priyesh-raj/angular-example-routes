@@ -6,7 +6,11 @@
   <div class="col-md-4">
     <ul class="list-group">
       <li class="list-group-text" *ngFor="let serverEle of servers"><a 
-      [routerLink]="['../servers', serverEle.id]">{{ serverEle.name }}</a></li>
+      [routerLink]="['../servers', serverEle.id]"
+      [queryParams]="{allowEdit: '1'}">{{ serverEle.name }}</a></li>
     </ul>
+  </div>
+  <div class="col-md-8">
+    <router-outlet></router-outlet>
   </div>
 </div>
