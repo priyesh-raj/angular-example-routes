@@ -24,15 +24,17 @@ export class ServerComponent implements OnInit {
     //   .subscribe(params => 
     //   {return +params.get('id')}))
 
-      this.route.paramMap
-      .subscribe(params => 
-      {this.selectedId = +params.get('id')
-      this.server = this.serverService.getServer(this.selectedId)})
-      // this.server = this.serverService.getServer(this.selectedId)
-      console.log(JSON.stringify(this.server))
+    this.route.paramMap
+      .subscribe(params => {
+        this.selectedId = +params.get('id')
+        this.server = this.serverService.getServer(this.selectedId)
+      }
+    )
+    // this.server = this.serverService.getServer(this.selectedId)
+
   }
 
   onEdit() {
-    this.router.navigate(['edit'], {relativeTo: this.route})
+    this.router.navigate(['edit'], {relativeTo: this.route,queryParamsHandling:'preserve'})
   }
 }

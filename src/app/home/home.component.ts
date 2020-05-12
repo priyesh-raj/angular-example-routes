@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../auth.service'
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router,) { }
+  constructor(private router: Router,private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -17,5 +19,11 @@ export class HomeComponent implements OnInit {
     //some operation
     //this.router.navigate(['/servers']) //programatically navigating using absolute path
   }
+  onLogIn(){
+    this.authService.logIn()
+  }
 
+  onLogOut(){
+    this.authService.logOut()
+  }
 }

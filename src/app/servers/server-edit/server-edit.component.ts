@@ -15,9 +15,10 @@ export class ServerEditComponent implements OnInit{
   constructor(private route: ActivatedRoute,private serverService: ServerService) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(
-      params => {this.allowEdit = params.get('allowEdit')=== '1' ? true : false}
-    )
+    this.route.queryParamMap.subscribe(
+      params => {this.allowEdit = params.get('allowEdit')=== "1" ? true : false
+      console.log(params)}
+    )  //*queryParamMap to return a paramMap of routers' query params
   }
 
 }

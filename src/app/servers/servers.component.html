@@ -7,7 +7,7 @@
     <ul class="list-group">
       <li class="list-group-text" *ngFor="let serverEle of servers"><a 
       [routerLink]="['../servers', serverEle.id]"
-      [queryParams]="{allowEdit: '1'}">{{ serverEle.name }}</a></li>
+      [queryParams]="{allowEdit: serverEle.id === 1 ? '1':'0'}">{{ serverEle.name }}</a></li>
     </ul>
   </div>
   <div class="col-md-8">

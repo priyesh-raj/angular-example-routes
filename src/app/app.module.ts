@@ -12,21 +12,18 @@ import { ServerEditComponent } from './servers/server-edit/server-edit.component
 import { HomeComponent } from './home/home.component';
 import { ServerComponent } from './servers/server/server.component';
 import { UserComponent } from './users/user/user.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
  
   
 
-const appRoutes : Routes = [{path:'', component: HomeComponent},
-  {path:'users', component: UsersComponent},
-  {path:'users/:id', component: UserComponent},
-  {path:'servers', component: ServersComponent, children:[
-    {path:':id', component: ServerComponent},
-    {path:':id/edit', component: ServerEditComponent},
-  ]},
-  ]
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(appRoutes) ],
-  declarations: [ AppComponent, UsersComponent, ServersComponent, UserEditComponent, ServerEditComponent, HomeComponent, ServerComponent, UserComponent ],
-  bootstrap:    [ AppComponent ]
+  imports:      [ BrowserModule, FormsModule, AppRoutingModule],
+  declarations: [ AppComponent, UsersComponent, ServersComponent, UserEditComponent, ServerEditComponent, HomeComponent, ServerComponent, UserComponent, ],
+  bootstrap:    [ AppComponent ],
+  providers:  [AuthGuardService,AuthService]
 })
 export class AppModule { }
