@@ -15,6 +15,7 @@ import { UserComponent } from './users/user/user.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
+import { CanDeactivateGuard } from './servers/can-deactivate.service';
  
   
 
@@ -22,8 +23,11 @@ import { AuthService } from './auth.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule],
-  declarations: [ AppComponent, UsersComponent, ServersComponent, UserEditComponent, ServerEditComponent, HomeComponent, ServerComponent, UserComponent, ],
+
+  declarations: [ AppComponent, UsersComponent, ServersComponent, UserEditComponent, ServerEditComponent,               HomeComponent, ServerComponent, UserComponent, ],
+
   bootstrap:    [ AppComponent ],
-  providers:  [AuthGuardService,AuthService]
+  
+  providers:  [AuthGuardService,AuthService, CanDeactivateGuard]
 })
 export class AppModule { }

@@ -8,6 +8,7 @@ import { UserComponent } from "./users/user/user.component";
 import { UsersComponent } from "./users/users.component";
 import { HomeComponent } from "./home/home.component";
 import { AuthGuardService } from "./auth-guard.service";
+import { CanDeactivateGuard } from "./servers/can-deactivate.service";
 
 
 const appRoutes : Routes = [{path:'', component: HomeComponent, pathMatch: 'full'},
@@ -15,7 +16,7 @@ const appRoutes : Routes = [{path:'', component: HomeComponent, pathMatch: 'full
   {path:'users/:id', component: UserComponent},
   {path:'servers', canActivateChild: [AuthGuardService],component: ServersComponent, children:[
     {path:':id', component: ServerComponent},
-    {path:':id/edit', component: ServerEditComponent},
+    {path:':id/edit', component: ServerEditComponent, canDeactivate: [CanDeactivateGuard]},
   ]}, //uncomment to guard parent component *comment or omit canActivateChild in that case
 ]
 @NgModule({

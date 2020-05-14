@@ -1,2 +1,11 @@
 <div *ngIf="!allowEdit">Not allowed to edit</div>
-<div *ngIf="allowEdit">_server_ with _serever_id is _server_status</div>
+<div *ngIf="allowEdit">
+  <div class="form-group">
+    <input type="text" class="from-control" [(ngModel)] = "editEle.name">
+  </div>
+  <div class="form-group">
+    <input type="text" class="from-control" [(ngModel)] = "editEle.desc">
+  </div>
+  {{ editEle.name}} with id {{ editEle.id }} is {{ editEle.desc }}.
+</div>
+<button class="btn btn-success" (click)="onUpdateServer()">Update</button>
